@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="lv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ķepu Pastaigas — pastaigas suņiem Rīgā</title>
+  <meta name="description" content="Ķepu Pastaigas ir mācību projekts par suņu pastaigām Rīgā. Izvēlies ilgumu un piesakies.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,560;9..144,680&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            cream: "#F6F1E6",
+            paper: "#FFFBF4",
+            sand: "#E7DCC8",
+            ink: "#1C2A23",
+            leaf: "#1B6B43",
+            "leaf-dark": "#124832"
+          },
+          fontFamily: {
+            display: ["Fraunces", "Georgia", "serif"],
+            sans: ["Manrope", "system-ui", "sans-serif"]
+          }
+        }
+      }
+    };
+  </script>
+</head>
+<body class="bg-cream font-sans text-ink antialiased">
+  <header class="sticky top-0 z-40 border-b border-sand/80 bg-cream/95 backdrop-blur">
+    <div class="mx-auto flex max-w-6xl items-center justify-between px-4 py-3 sm:px-6">
+      <a href="#sakums" class="flex items-center gap-2 font-display text-xl text-leaf-dark">
+        <span class="grid h-9 w-9 place-items-center rounded-full bg-leaf text-cream" aria-hidden="true">
+          <svg viewBox="0 0 64 64" class="h-5 w-5" fill="currentColor">
+            <ellipse cx="18" cy="22" rx="7" ry="9" transform="rotate(-18 18 22)"/>
+            <ellipse cx="32" cy="16" rx="7" ry="9"/>
+            <ellipse cx="46" cy="22" rx="7" ry="9" transform="rotate(18 46 22)"/>
+            <ellipse cx="50" cy="36" rx="6" ry="8" transform="rotate(28 50 36)"/>
+            <path d="M22 40c2 8 6 14 10 14s8-6 10-14c-4 3-8 4-10 4s-6-1-10-4z"/>
+          </svg>
+        </span>
+        Ķepu Pastaigas
+      </a>
+
+      <nav class="hidden items-center gap-6 text-sm font-semibold md:flex" aria-label="Galvenā izvēlne">
+        <a class="hover:text-leaf" href="#sakums">Sākums</a>
+        <a class="hover:text-leaf" href="#par-projektu">Par projektu</a>
+        <a class="hover:text-leaf" href="#pastaigu-veidi">Pastaigu veidi</a>
+        <a class="hover:text-leaf" href="#ka-tas-darbojas">Kā tas darbojas?</a>
+        <a class="rounded-full bg-leaf px-4 py-2 text-cream hover:bg-leaf-dark" href="#pieteiksanas">Pieteikšanās</a>
+      </nav>
+
+      <button
+        id="menu-button"
+        type="button"
+        class="inline-flex h-11 w-11 items-center justify-center rounded-full border border-sand bg-paper text-ink md:hidden"
+        aria-expanded="false"
+        aria-controls="mobile-nav"
+      >
+        <span class="sr-only">Atvērt izvēlni</span>
+        <svg id="icon-open" viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <path d="M4 7h16M4 12h16M4 17h16"/>
+        </svg>
+        <svg id="icon-close" viewBox="0 0 24 24" class="hidden h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <path d="M6 6l12 12M18 6L6 18"/>
+        </svg>
+      </button>
+    </div>
+
+    <nav id="mobile-nav" class="hidden border-t border-sand bg-paper px-4 py-3 md:hidden" aria-label="Mobilā izvēlne">
+      <div class="flex flex-col gap-1 text-base font-semibold">
+        <a class="rounded-xl px-3 py-3 hover:bg-cream" href="#sakums">Sākums</a>
+        <a class="rounded-xl px-3 py-3 hover:bg-cream" href="#par-projektu">Par projektu</a>
+        <a class="rounded-xl px-3 py-3 hover:bg-cream" href="#pastaigu-veidi">Pastaigu veidi</a>
+        <a class="rounded-xl px-3 py-3 hover:bg-cream" href="#ka-tas-darbojas">Kā tas darbojas?</a>
+        <a class="rounded-xl bg-leaf px-3 py-3 text-center text-cream" href="#pieteiksanas">Pieteikšanās</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section id="sakums" class="scroll-mt-24">
+      <div class="mx-auto grid max-w-6xl items-center gap-10 px-4 py-14 sm:px-6 lg:grid-cols-2 lg:py-20">
+        <div>
+          <p class="mb-4 text-sm font-bold uppercase tracking-[0.18em] text-leaf">Rīga</p>
+          <h1 class="font-display text-5xl leading-tight text-leaf-dark sm:text-6xl">Pastaigas suņiem Rīgā</h1>
+          <p class="mt-5 max-w-xl text-lg leading-relaxed text-ink/80">Kamēr tu esi darbā, tavs suns var izkustēties un izbaudīt pastaigu.</p>
+          <a href="#pieteiksanas" class="mt-8 inline-flex rounded-full bg-leaf px-6 py-3 font-bold text-cream hover:bg-leaf-dark">Pieteikt pastaigu</a>
+        </div>
+        <div class="flex justify-center">
+          <div class="grid h-72 w-72 place-items-center rounded-full bg-sand sm:h-80 sm:w-80" aria-hidden="true">
+            <svg viewBox="0 0 200 200" class="h-48 w-48 text-leaf">
+              <ellipse cx="58" cy="68" rx="22" ry="30" fill="currentColor" transform="rotate(-16 58 68)"/>
+              <ellipse cx="100" cy="50" rx="22" ry="30" fill="currentColor"/>
+              <ellipse cx="142" cy="68" rx="22" ry="30" fill="currentColor" transform="rotate(16 142 68)"/>
+              <ellipse cx="158" cy="112" rx="18" ry="26" fill="currentColor" transform="rotate(28 158 112)"/>
+              <path fill="currentColor" d="M70 122c6 28 18 48 30 48s24-20 30-48c-12 10-22 14-30 14s-18-4-30-14z"/>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="par-projektu" class="scroll-mt-24 border-y border-sand bg-paper">
+      <div class="mx-auto max-w-6xl px-4 py-16 sm:px-6">
+        <p class="text-sm font-bold uppercase tracking-[0.18em] text-leaf">Par projektu</p>
+        <h2 class="mt-3 font-display text-4xl text-leaf-dark">Pastaiga, ko vari saplānot jau iepriekš</h2>
+        <p class="mt-5 max-w-3xl text-lg leading-relaxed text-ink/80">Ķepu Pastaigas ir domātas saimniekiem Rīgā, kuri dienas laikā nevar paši izvest suni. Tu izvēlies pastaigas ilgumu un vari jau pieteikumā pastāstīt par sava suņa īpatnībām — raksturu, pavadu, bailēm no skaļām ielām vai citiem suņiem.</p>
+      </div>
+    </section>
+
+    <section id="pastaigu-veidi" class="scroll-mt-24">
+      <div class="mx-auto max-w-6xl px-4 py-16 sm:px-6">
+        <p class="text-sm font-bold uppercase tracking-[0.18em] text-leaf">Pastaigu veidi</p>
+        <h2 class="mt-3 font-display text-4xl text-leaf-dark">Trīs ilgumi, viens pieteikums</h2>
+        <div class="mt-8 grid grid-cols-1 gap-5 md:grid-cols-3">
+          <article class="flex flex-col rounded-3xl border border-sand bg-paper p-6" data-card="isa">
+            <p class="font-display text-5xl text-leaf">20</p>
+            <p class="text-sm font-semibold text-ink/60">minūtes</p>
+            <h3 class="mt-4 text-2xl font-bold">Īsā pastaiga</h3>
+            <p class="mt-2 flex-1 leading-relaxed text-ink/75">Īsa izkustēšanās tuvākajā parkā vai mierīgā ielā, kad pietiek ar nelielu apli.</p>
+            <button type="button" class="walk-choice mt-6 rounded-full bg-leaf px-5 py-3 font-bold text-cream hover:bg-leaf-dark" data-walk="Īsā pastaiga (20 minūtes)">Izvēlēties</button>
+          </article>
+          <article class="flex flex-col rounded-3xl border border-sand bg-paper p-6" data-card="ikdienas">
+            <p class="font-display text-5xl text-leaf">40</p>
+            <p class="text-sm font-semibold text-ink/60">minūtes</p>
+            <h3 class="mt-4 text-2xl font-bold">Ikdienas pastaiga</h3>
+            <p class="mt-2 flex-1 leading-relaxed text-ink/75">Parasta dienas pastaiga ar laiku ostīt, apstāties un mierīgi izskrieties.</p>
+            <button type="button" class="walk-choice mt-6 rounded-full bg-leaf px-5 py-3 font-bold text-cream hover:bg-leaf-dark" data-walk="Ikdienas pastaiga (40 minūtes)">Izvēlēties</button>
+          </article>
+          <article class="flex flex-col rounded-3xl border border-sand bg-paper p-6" data-card="gara">
+            <p class="font-display text-5xl text-leaf">60</p>
+            <p class="text-sm font-semibold text-ink/60">minūtes</p>
+            <h3 class="mt-4 text-2xl font-bold">Garā pastaiga</h3>
+            <p class="mt-2 flex-1 leading-relaxed text-ink/75">Garāka pastaiga sunim, kuram vajag vairāk kustību un laika ārā.</p>
+            <button type="button" class="walk-choice mt-6 rounded-full bg-leaf px-5 py-3 font-bold text-cream hover:bg-leaf-dark" data-walk="Garā pastaiga (60 minūtes)">Izvēlēties</button>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="ka-tas-darbojas" class="scroll-mt-24 bg-leaf-dark text-cream">
+      <div class="mx-auto max-w-6xl px-4 py-16 sm:px-6">
+        <p class="text-sm font-bold uppercase tracking-[0.18em] text-sand">Kā tas darbojas?</p>
+        <h2 class="mt-3 font-display text-4xl">Trīs soļi līdz pastaigai</h2>
+        <ol class="mt-8 grid grid-cols-1 gap-5 md:grid-cols-3">
+          <li class="rounded-3xl bg-white/10 p-6">
+            <p class="font-display text-3xl text-sand">01</p>
+            <h3 class="mt-3 text-xl font-bold">Izvēlies pastaigu</h3>
+            <p class="mt-2 leading-relaxed text-cream/85">Norādi, vai sunim vajag 20, 40 vai 60 minūtes.</p>
+          </li>
+          <li class="rounded-3xl bg-white/10 p-6">
+            <p class="font-display text-3xl text-sand">02</p>
+            <h3 class="mt-3 text-xl font-bold">Atstāj pieteikumu</h3>
+            <p class="mt-2 leading-relaxed text-cream/85">Ieraksti savu vārdu, suņa vārdu un vēlamo datumu.</p>
+          </li>
+          <li class="rounded-3xl bg-white/10 p-6">
+            <p class="font-display text-3xl text-sand">03</p>
+            <h3 class="mt-3 text-xl font-bold">Gaidi atbildi</h3>
+            <p class="mt-2 leading-relaxed text-cream/85">Mēs sazināsimies, lai precizētu laiku un vietu.</p>
+          </li>
+        </ol>
+        <p class="mt-6 max-w-3xl leading-relaxed text-cream/90">Pieteikuma nosūtīšana pati par sevi neapstiprina ierakstu. Pastaiga ir rezervēta tikai pēc atbildes.</p>
+      </div>
+    </section>
+
+    <section id="pieteiksanas" class="scroll-mt-24">
+      <div class="mx-auto max-w-3xl px-4 py-16 sm:px-6">
+        <p class="text-sm font-bold uppercase tracking-[0.18em] text-leaf">Pieteikšanās</p>
+        <h2 class="mt-3 font-display text-4xl text-leaf-dark">Piesaki pastaigu</h2>
+        <p class="mt-4 leading-relaxed text-ink/75">Aizpildi pieteikumu. Apstiprinājumu redzēsi tikai tad, ja ziņa būs veiksmīgi nosūtīta.</p>
+
+        <!-- Nomaini action uz savu Formspree adresi, piemēram https://formspree.io/f/abcdwxyz -->
+        <form id="pieteikums" class="mt-8 space-y-5 rounded-3xl border border-sand bg-paper p-6 sm:p-8" action="https://formspree.io/f/xdeeqjvl" method="POST">
+          <div>
+            <label class="mb-2 block font-semibold" for="vards">Vārds</label>
+            <input class="w-full rounded-2xl border border-sand bg-cream px-4 py-3 outline-none ring-leaf focus:ring-2" id="vards" name="vards" type="text" autocomplete="name" required>
+          </div>
+          <div>
+            <label class="mb-2 block font-semibold" for="epasts">E-pasts</label>
+            <input class="w-full rounded-2xl border border-sand bg-cream px-4 py-3 outline-none ring-leaf focus:ring-2" id="epasts" name="epasts" type="email" autocomplete="email" required>
+          </div>
+          <div>
+            <label class="mb-2 block font-semibold" for="suna-vards">Suņa vārds</label>
+            <input class="w-full rounded-2xl border border-sand bg-cream px-4 py-3 outline-none ring-leaf focus:ring-2" id="suna-vards" name="suna_vards" type="text" required>
+          </div>
+          <div>
+            <label class="mb-2 block font-semibold" for="pastaigas-veids">Pastaigas veids</label>
+            <select class="w-full rounded-2xl border border-sand bg-cream px-4 py-3 outline-none ring-leaf focus:ring-2" id="pastaigas-veids" name="pastaigas_veids" required>
+              <option value="">Izvēlies pastaigu</option>
+              <option value="Īsā pastaiga (20 minūtes)">Īsā pastaiga (20 minūtes)</option>
+              <option value="Ikdienas pastaiga (40 minūtes)">Ikdienas pastaiga (40 minūtes)</option>
+              <option value="Garā pastaiga (60 minūtes)">Garā pastaiga (60 minūtes)</option>
+            </select>
+          </div>
+          <div>
+            <label class="mb-2 block font-semibold" for="datums">Vēlamais datums</label>
+            <input class="w-full rounded-2xl border border-sand bg-cream px-4 py-3 outline-none ring-leaf focus:ring-2" id="datums" name="datums" type="date" required>
+          </div>
+          <div>
+            <label class="mb-2 block font-semibold" for="piezimes">Piezīmes par suni</label>
+            <textarea class="w-full rounded-2xl border border-sand bg-cream px-4 py-3 outline-none ring-leaf focus:ring-2" id="piezimes" name="piezimes" rows="4" placeholder="Piemēram, bailes, pavada, citi suņi"></textarea>
+          </div>
+          <button id="submit-button" class="w-full rounded-full bg-leaf px-6 py-3 font-bold text-cream hover:bg-leaf-dark disabled:opacity-60" type="submit">Nosūtīt pieteikumu</button>
+          <p id="form-status" class="hidden rounded-2xl px-4 py-3 text-sm font-semibold" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="border-t border-sand bg-paper">
+    <div class="mx-auto flex max-w-6xl flex-col gap-2 px-4 py-8 text-sm text-ink/70 sm:px-6 sm:flex-row sm:items-center sm:justify-between">
+      <p class="font-display text-lg text-leaf-dark">Ķepu Pastaigas</p>
+      <p>Šī vietne ir mācību projekts.</p>
+    </div>
+  </footer>
+
+  <script>
+    const menuButton = document.getElementById("menu-button");
+    const mobileNav = document.getElementById("mobile-nav");
+    const iconOpen = document.getElementById("icon-open");
+    const iconClose = document.getElementById("icon-close");
+    const form = document.getElementById("pieteikums");
+    const statusBox = document.getElementById("form-status");
+    const submitButton = document.getElementById("submit-button");
+    const walkSelect = document.getElementById("pastaigas-veids");
+    const dateInput = document.getElementById("datums");
+
+    dateInput.min = new Date().toISOString().slice(0, 10);
+
+    function setMenu(open) {
+      menuButton.setAttribute("aria-expanded", String(open));
+      menuButton.querySelector(".sr-only").textContent = open ? "Aizvērt izvēlni" : "Atvērt izvēlni";
+      mobileNav.classList.toggle("hidden", !open);
+      iconOpen.classList.toggle("hidden", open);
+      iconClose.classList.toggle("hidden", !open);
+    }
+
+    menuButton.addEventListener("click", () => {
+      setMenu(menuButton.getAttribute("aria-expanded") !== "true");
+    });
+
+    mobileNav.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", () => setMenu(false));
+    });
+
+    function markCard(value) {
+      document.querySelectorAll("[data-card]").forEach((card) => {
+        const selected = card.querySelector(".walk-choice").dataset.walk === value;
+        card.classList.toggle("ring-2", selected);
+        card.classList.toggle("ring-leaf", selected);
+      });
+    }
+
+    document.querySelectorAll(".walk-choice").forEach((button) => {
+      button.addEventListener("click", () => {
+        walkSelect.value = button.dataset.walk;
+        markCard(button.dataset.walk);
+        document.getElementById("pieteiksanas").scrollIntoView({ behavior: "smooth" });
+        window.setTimeout(() => walkSelect.focus(), 400);
+      });
+    });
+
+    function showStatus(kind, message) {
+      statusBox.textContent = message;
+      statusBox.classList.remove("hidden", "bg-leaf/10", "text-leaf-dark", "bg-red-50", "text-red-800");
+      if (kind === "success") {
+        statusBox.classList.add("bg-leaf/10", "text-leaf-dark");
+      } else {
+        statusBox.classList.add("bg-red-50", "text-red-800");
+      }
+    }
+
+    form.addEventListener("submit", async (event) => {
+      event.preventDefault();
+      statusBox.classList.add("hidden");
+      statusBox.textContent = "";
+      submitButton.disabled = true;
+      const originalLabel = submitButton.textContent;
+      submitButton.textContent = "Sūta...";
+
+      try {
+        const response = await fetch(form.action, {
+          method: "POST",
+          body: new FormData(form),
+          headers: { Accept: "application/json" }
+        });
+        const data = await response.json().catch(() => null);
+
+        if (response.ok && data && data.ok === true) {
+          showStatus("success", "Paldies! Pieteikums ir nosūtīts. Mēs sazināsimies ar tevi. Šī ziņa vēl nenozīmē, ka pastaiga ir apstiprināta.");
+          form.reset();
+          dateInput.min = new Date().toISOString().slice(0, 10);
+          markCard("");
+        } else {
+          const detail = data && (data.error || (data.errors && data.errors.map((item) => item.message).join(" ")));
+          showStatus("error", detail || "Pieteikumu neizdevās nosūtīt. Pārbaudi Formspree adresi vai mēģini vēlreiz.");
+        }
+      } catch (error) {
+        showStatus("error", "Pieteikumu neizdevās nosūtīt. Pārbaudi savienojumu un mēģini vēlreiz.");
+      } finally {
+        submitButton.disabled = false;
+        submitButton.textContent = originalLabel;
+      }
+    });
+  </script>
+</body>
+</html>
